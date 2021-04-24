@@ -33,24 +33,29 @@
     <title>Blog</title>
   </head>
   <body>
-    <%- include ('./partials/navbar.ejs')%>
+    <%-include ('./partials/navbar.ejs')%>
     <div class="wrapper">
       <div class="container d-flex intro">
         <div class="d-flex flex-row bd-highlight mb-4 mx-auto">
           <div class="column-1 mx-auto">
             <div class="elements-col mx-auto">
-              <h1 class="intro-text">Train apps to</h1>
-              <h1 class="intro-text-sub">Feel emotions</h1>
+              <h1 class="intro-text">
+                Who could Impira help out? You. Me. Everyone
+              </h1>
 
-              <p class="intro-sub">Brand helps you train machine learning</p>
-              <p class="intro-sub">models with a free, easy to use tool</p>
+              <p style="margin-top: 32px; font-weight: bold">
+                By Mike Yi / April 22, 2021
+              </p>
+              <p class="intro-sub">
+                Impira is for anyone, even you. Meet a few people who have zero
+                coding experience but use Impira to automate their manual data
+                entry tasks, freeing them to do what they were originally hired
+                to do.
+              </p>
 
               <div class="btn-shell">
                 <button type="button" class="btn btn-warning btn-signup">
-                  Download
-                </button>
-                <button type="button" class="btn btn-default btn-watch">
-                  Watch Video <i class="far fa-play-circle"></i>
+                  Read More
                 </button>
               </div>
             </div>
@@ -68,6 +73,7 @@
               controls
               preload="auto"
               autoplay
+              loop
               muted
             ></video>
           </div>
@@ -75,6 +81,124 @@
       </div>
     </div>
 
+    <h1 class="feat-articles">Featured Articles</h1>
+
+    <div class="wrapper-articles mx-auto">
+      <div class="container d-flex intro-2">
+        <div class="d-flex flex-row bd-highlight mb-3">
+          <div class="column-2">
+            <div class="card-blog">
+              <img
+                src="/img/ai.svg"
+                id="anim"
+                class="img-fluid art-img"
+                alt=""
+              />
+              <p class="category">Technology / 7 min read</p>
+              <h1 class="category-title">
+                Acronyms explained: AI, RPA, OCR, ICR, ML, and AUTOML
+              </h1>
+              <p class="art-author">By Ankur Goyal / February 24, 2021</p>
+              <p class="article-content">
+                The world of automation is confusing enough and the acronym soup
+                — AI, ML, OCR, ICR, RPA — adopted by vendors makes it more so.
+                Here, we aim to define the terminology you’re hearing, explain
+                how they are different and, hopefully, educate you on what’s
+                best for your use case.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container d-flex intro-2">
+        <div class="d-flex flex-row bd-highlight mb-3 mx-auto">
+          <div class="column-2">
+            <img
+              src="/img/worki.png"
+              id="anim"
+              class="img-fluid art-img"
+              alt=""
+            />
+            <p class="category">Technology / 7 min read</p>
+            <h1 class="category-title">
+              Who could Impira help out? You. Me. Everyone.
+            </h1>
+            <p class="art-author">By Ankur Goyal / February 24, 2021</p>
+            <p class="article-content">
+              Impira is for anyone, even you. Meet a few people who have zero
+              coding experience but use Impira to automate their manual data
+              entry tasks, freeing them to do what they were originally hired to
+              do.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container d-flex intro-2">
+        <div class="d-flex flex-row bd-highlight mb-3 mx-auto">
+          <div class="column-2">
+            <img
+              src="/img/insp.png"
+              id="anim"
+              class="img-fluid art-img"
+              alt=""
+            />
+            <p class="category">Technology / 7 min read</p>
+            <h1 class="category-title">
+              Use Impira AutoML to automate custom medical order form processing
+            </h1>
+            <p class="art-author">By Andrew Spaulding / March 31, 2021</p>
+            <p class="article-content">
+              Custom medical order form processing is an arduous task that
+              requires a lot of man hours and is often error-prone. Learn how to
+              automate these processes in minutes with pinpoint accuracy using
+              Impira AutoML, freeing up your knowledge workers to focus on more
+              complex tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="articles-list-box">
+      <div class="list-wrapper mx-auto">
+        <h1 class="stories">Latest stories</h1>
+
+        <hr />
+        <div class="content-row">
+          <div class="wrapper-articles list-articles">
+            <div class="container d-flex article-info">
+              <div class="container column-date">
+                <p>Apr 22, 2021</p>
+              </div>
+              <div class="container d-flex column-category">Business</div>
+            </div>
+
+            <div class="container d-flex">
+              <div class="column-article art-title-list">
+                <h1>Who could Impira help out? You. Me. Everyone.</h1>
+              </div>
+            </div>
+            <div class="container d-flex">
+              <div class="column-content">
+                <p class="article-content">
+                  Custom medical order form processing is an arduous task that
+                  requires a lot of man hours and is often error-prone. Learn
+                  how to automate these processes in minutes with pinpoint
+                  accuracy
+                </p>
+              </div>
+            </div>
+
+            <div class="column-article list-author">
+              <b>By Mike Yi</b>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+    </div>
     <%- include('./partials/footer.ejs')%>
   </body>
 </html>

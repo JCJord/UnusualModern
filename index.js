@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
-const db = require("./model/db");
+const db = require("./model/DB");
 const routes = require("./routes/route");
+const categoryController = require("./routes/CategoryController");
+const articleController = require("./routes/ArticleController");
 
 // Estabelecendo conexão com o banco
 
@@ -29,6 +31,8 @@ app.use(express.static("public"));
 // Conectando as rotas
 
 app.use("/", routes);
+app.use("/", categoryController);
+app.use("/", articleController);
 
 const PORT = 8082;
 app.listen(PORT, () => {
