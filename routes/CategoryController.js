@@ -3,11 +3,12 @@ const router = express.Router();
 const category = require("../model/Category");
 const slugify = require("slugify");
 
-router.get("/", (req, res) => {
-  res.render(__dirname + "/../views/index");
-});
 router.get("/admin/categories/new", (req, res) => {
-  res.render(__dirname + "/../views/admin/categories/new");
+  category.findAll().then((categories) => {
+    res.render(__dirname + "/../views/admin/categories/new", {
+      categories: categories,
+    });
+  });
 });
 
 router.post("/categories/save", (req, res) => {
@@ -63,20 +64,18 @@ router.post("/categories/delete", (req, res) => {
 router.get("/admin/categories/edit/:id", (req, res) => {
   var id = req.params.id;
 
-  category.findByPk(id).then((category) => {
-    if (isNaN(id)) {
-      res.redirect("/admin/categories");
-    }
-    if (id != undefined) {
-      if (isNaN(id)) {
-        res.redirect("/admin/categories");
+  category.findAll().then((categories) => {
+    category.findByPk(id).then((category) => {
+      if (id != undefined) {
+        if (isNaN(id)) {
+          res.redirect("/admin/categories");
+        }
+        res.render(__dirname + "/../views/admin/categories/edit", {
+          category: category,
+          categories: categories,
+        });
       }
-      res.render(__dirname + "/../views/admin/categories/edit", {
-        category: category,
-      });
-    } else {
-      res.redirect("/admin/categories");
-    }
+    });
   });
 });
 

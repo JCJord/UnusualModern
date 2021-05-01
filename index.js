@@ -1,9 +1,20 @@
 const express = require("express");
 const app = express();
 const db = require("./model/DB");
+const session = require("express-session");
 const routes = require("./routes/route");
 const categoryController = require("./routes/CategoryController");
 const articleController = require("./routes/ArticleController");
+const userController = require("./routes/UserController");
+
+app.use(
+  session({
+    secret: "azKYUoKms₧↑♀←ƒ♪ö¿∞èìYìÑ╣êπ62ä65◘Ä98üï⌐☺9☺98oijfsaoiJSNAXG@%¨s!",
+    cookie: {
+      maxAge: 300000,
+    },
+  })
+);
 
 // Estabelecendo conexão com o banco
 
@@ -33,6 +44,7 @@ app.use(express.static("public"));
 app.use("/", routes);
 app.use("/", categoryController);
 app.use("/", articleController);
+app.use("/", userController);
 
 const PORT = 8082;
 app.listen(PORT, () => {

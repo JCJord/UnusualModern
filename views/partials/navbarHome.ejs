@@ -1,0 +1,53 @@
+<div class="nav-wrapper fixed-top">
+  <nav class="navbar navbar-dark b mx-auto">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Brand</a>
+
+      <div class="nav-icons">
+        <ul class="nav navbar d-flex d-inline-flex nav-set">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/"> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/categories/"> Categorias </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Categorias
+              <img src="/img/arrow-down.svg" class="arrow-img" alt="" />
+            </a>
+
+            <ul class="dropdown-s">
+              <%categories.forEach((category)=>{%>
+              <li>
+                <a href="/category/<%=category.slug%>" class="drop-link"
+                  ><%=category.title%></a
+                >
+              </li>
+              <% })%>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Blog </a>
+          </li>
+        </ul>
+      </div>
+      <div class="user-icons">
+        <a href="#"><i class="far fa-user-circle"></i></a>
+
+        <a href="/login" class="btn btn-light btn-login">Log in</a>
+      </div>
+
+      <a class="animated-icon1" onclick="openNav()">
+        <span></span><span></span><span></span>
+      </a>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="/">Perguntas</a>
+      <a href="/">Services</a>
+      <a href="/">Community</a>
+      <a href="/">Categories</a>
+    </div>
+  </nav>
+</div>

@@ -33,7 +33,7 @@
     <title>Blog</title>
   </head>
   <body>
-    <%-include ('./partials/navbar.ejs')%>
+    <%-include ('./partials/navbarHome.ejs')%>
     <div class="wrapper">
       <div class="container d-flex intro">
         <div class="d-flex flex-row bd-highlight mb-4 mx-auto">
@@ -45,7 +45,9 @@
 
               <p style="margin-top: 32px; font-weight: bold">
                 By Mike Yi / April 22, 2021
+                
               </p>
+              
               <p class="intro-sub">
                 Impira is for anyone, even you. Meet a few people who have zero
                 coding experience but use Impira to automate their manual data
@@ -161,44 +163,78 @@
       </div>
     </div>
 
-    <div class="articles-list-box">
-      <div class="list-wrapper mx-auto">
-        <h1 class="stories">Latest stories</h1>
-
-        <hr />
-        <div class="content-row">
-          <div class="wrapper-articles list-articles">
+    <div class="articles-list-box ">
+      
+      <div class="list-wrapper mx-auto ">
+        <div class="container d-flex stories">
+        <h1 >Latest stories</h1>
+        </div>
+      </div>
+      <hr style="margin-bottom: 0px; " />
+      <%articles.forEach((article)=>{%>
+        
+        
+        
+         
+        <div class="content-row ">
+         <a href="/<%=article.slug%>" > <span class= "clickable-area"></span></a>
+          <div class="wrapper-articles mx-auto">
             <div class="container d-flex article-info">
-              <div class="container column-date">
-                <p>Apr 22, 2021</p>
+              <div class=" column-date">
+                <b><%= article.createdAt.toString().substring(4,16).replace(' ',', ')%>
+                </b>
               </div>
-              <div class="container d-flex column-category">Business</div>
+              <div class="column-category"><%=article.Category.title%></div>
             </div>
 
             <div class="container d-flex">
               <div class="column-article art-title-list">
-                <h1>Who could Impira help out? You. Me. Everyone.</h1>
+                <h1><%= article.title%></h1>
               </div>
             </div>
+
             <div class="container d-flex">
               <div class="column-content">
-                <p class="article-content">
-                  Custom medical order form processing is an arduous task that
-                  requires a lot of man hours and is often error-prone. Learn
-                  how to automate these processes in minutes with pinpoint
-                  accuracy
+                <p >
+                  <%= article.body.substring(0,250).replace(/<[^>]*>?/gm, '').replace(/&nbsp;/gi,'').replace(/&mdash;/gi,'');%>... 
                 </p>
               </div>
             </div>
 
-            <div class="column-article list-author">
-              <b>By Mike Yi</b>
+            <div class="container d-flex author-container">
+              <div class="column-article list-author">
+                <b>By Mike Yi</b>
+              </div>
             </div>
+
+           </div> 
+          
+          </div>  
+          
+          <hr style="margin-bottom: 0px; margin-top: 0px; z-index: -1;"/>
+          <%})%>
           </div>
+          
         </div>
-        <hr />
+        
+
+        
+       
+        
       </div>
+     
+    </div>  
+    <div class="pagination-wrapper">
+      
+      <div class=" container next-container ">
+        
+        <a href="/page/2" class="btn btn-light btn-next">Next > </a>
+        
+      </div>
+      
     </div>
+    
+    
     <%- include('./partials/footer.ejs')%>
   </body>
 </html>

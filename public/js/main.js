@@ -5,13 +5,13 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     icon.classList.add("open");
     icon.classList.add("bz");
-    document.querySelector(".overlay").classList.remove("hidden");
+
     disableScroll();
   } else {
     document.getElementById("mySidenav").style.width = "0";
     icon.classList.remove("bz");
     icon.classList.remove("open");
-    document.querySelector(".overlay").classList.add("hidden");
+
     enableScroll();
   }
 }
@@ -63,12 +63,3 @@ function enableScroll() {
   window.removeEventListener("touchmove", preventDefault, wheelOpt);
   window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
 }
-
-tinymce.init({
-  language: "pt_BR",
-  height: "335",
-  selector: "#arigo",
-  plugins: [
-    "advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons",
-  ],
-});

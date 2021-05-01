@@ -25,7 +25,7 @@
       src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
       referrerpolicy="origin"
     ></script>
-    <script src="/tinymce/jquery.tinymce.min.js"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
       integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
@@ -40,7 +40,7 @@
     <title>Blog</title>
   </head>
   <body>
-    <%- include('../../partials/navbar.ejs')%>
+    <%- include('../../partials/navbarHome.ejs')%>
     <div class="container add_admin">
       <div class="ctg_title">
         <h2>Adicionar novo Artigo</h2>
@@ -68,7 +68,12 @@
 
           <div class="form-group">
             <label style="font-weight: bold">Categoria</label>
-            <select name="category" class="form-control selection-box" id="">
+            <select
+              name="category"
+              class="form-control selection-box"
+              id=""
+              required
+            >
               <%categories.forEach((category)=>{%>
               <option value="<%=category.id%>"><%=category.title%></option>
               <%})%>
@@ -92,6 +97,17 @@
         </form>
       </div>
     </div>
+
+    <script>
+      tinymce.init({
+        language: "pt_BR",
+        height: "335",
+        selector: "#arigo",
+        plugins: [
+          "advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons",
+        ],
+      });
+    </script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
-<%- include('../../partials/footer.ejs')%>
