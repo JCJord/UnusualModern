@@ -39,10 +39,7 @@
         <div class="card article-card">
           <div class="card-header"><h1><%=articles.title%></h1></div>
 
-          <div class="card-body">
-            <%= article.body.substring(0,120).replace(/<[^>]*>?/gm,
-            '').replace(/&nbsp;/gi,'').replace(/&mdash;/gi,'');%>...
-          </div>
+          <div class="card-body"><%-articles.body%></div>
         </div>
       </div>
     </div>
