@@ -58,7 +58,13 @@
     <div id="mySidenav" class="sidenav">
       <a href="/">Home</a>
       <a href="/categories">Categories</a>
-      <%if(logged == undefined){%>
+      <%if(logged !=undefined){%>
+
+      <a href="/admin/categories/"> Categories panel </a>
+
+      <a href="/admin/articles/"> Articles panel </a>
+
+      <%}%> <%if(logged == undefined){%>
       <a href="/user/login">Log In</a>
       <%}else{%>
       <a href="/user/logout">Log Out</a>
