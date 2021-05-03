@@ -40,7 +40,10 @@
         <div class="card-container">
           <div class="card">
             <div class="card-header"><h1><%= article.title%></h1></div>
-            <div class="card-body"><%-article.body.substring(0,600)%></div>
+            <div class="card-body">
+              <%= article.body.substring(0,120).replace(/<[^>]*>?/gm,
+              '').replace(/&nbsp;/gi,'').replace(/&mdash;/gi,'');%>...
+            </div>
 
             <a href="/<%=article.slug%>" class="btn btn-default btn-signup"
               >Read More</a
