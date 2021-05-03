@@ -742,7 +742,15 @@ nav ul ul ul li {
     background-color: rgb(100, 100, 100);
   }
 }
-
+.intro-2 {
+  color: black;
+  text-decoration: none;
+  transition: 0.3s ease;
+  &:hover {
+    text-decoration: underline;
+    color: #000000;
+  }
+}
 @media screen and(max-width:650px) {
   .modal-content {
     height: 100%;
