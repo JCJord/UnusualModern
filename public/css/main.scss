@@ -751,6 +751,9 @@ nav ul ul ul li {
     color: #000000;
   }
 }
+.card-body img {
+  width: 100% !important;
+}
 @media screen and(max-width:650px) {
   .modal-content {
     height: 100%;
