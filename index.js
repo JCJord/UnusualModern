@@ -44,7 +44,7 @@ app.use("/", categoryController);
 app.use("/", articleController);
 app.use("/", userController);
 
-const PORT = 8082;
+const PORT = process.env.PORT || 8082;
 app.listen(PORT, () => {
   console.log("connected to port 8082");
 });
