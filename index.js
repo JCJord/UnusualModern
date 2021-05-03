@@ -40,7 +40,6 @@ app.use(express.static("public"));
 
 // Conectando as rotas
 
-app.use("/", routes);
 app.use("/", categoryController);
 app.use("/", articleController);
 app.use("/", userController);
