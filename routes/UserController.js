@@ -5,7 +5,7 @@ const category = require("../model/Category");
 const bcrypt = require("bcryptjs");
 const adminAuth = require("../middlewares/adminAuth");
 
-router.get("/admin/user/create", adminAuth, (req, res) => {
+router.get("/admin/user/create", (req, res) => {
   var logged = req.session.user;
   category.findAll().then((categories) => {
     res.render(__dirname + "/../views/admin/users/new", {
@@ -15,7 +15,7 @@ router.get("/admin/user/create", adminAuth, (req, res) => {
   });
 });
 
-router.post("/user/create", adminAuth, (req, res) => {
+router.post("/user/create", (req, res) => {
   var name = req.body.name;
   var email = req.body.email;
   var password = req.body.password;
