@@ -8,12 +8,18 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/"> Home</a>
           </li>
+          <%if(logged !=undefined){%>
           <li class="nav-item">
-            <a class="nav-link" href="/admin/categories/"> Categorias </a>
+            <a class="nav-link" href="/admin/categories/"> Categories Table </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/articles/"> Articles Table </a>
+          </li>
+          <%}%>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              Categorias
+              Categories
               <img src="/img/arrow-down.svg" class="arrow-img" alt="" />
             </a>
 
@@ -27,15 +33,21 @@
               <% })%>
             </ul>
           </li>
+          <%if(logged == undefined){%>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Blog </a>
+            <a class="nav-link" href="https://jcjord.github.io/portfolio/">
+              About Us
+            </a>
           </li>
+          <%}%>
         </ul>
       </div>
       <div class="user-icons">
-        <a href="#"><i class="far fa-user-circle"></i></a>
-
-        <a href="/login" class="btn btn-light btn-login">Log in</a>
+        <%if(logged == undefined){%>
+        <a href="/user/login" class="btn btn-light btn-login">Log in</a>
+        <%}%> <%if(logged != undefined){%>
+        <a href="/user/logout" class="btn btn-light btn-login">Log Out</a>
+        <%}%>
       </div>
 
       <a class="animated-icon1" onclick="openNav()">
@@ -44,10 +56,13 @@
     </div>
 
     <div id="mySidenav" class="sidenav">
-      <a href="/">Perguntas</a>
-      <a href="/">Services</a>
-      <a href="/">Community</a>
-      <a href="/">Categories</a>
+      <a href="/">Home</a>
+      <a href="/categories">Categories</a>
+      <%if(logged == undefined){%>
+      <a href="/user/login">Log In</a>
+      <%}else{%>
+      <a href="/user/logout">Log Out</a>
+      <%}%>
     </div>
   </nav>
 </div>

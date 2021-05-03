@@ -37,14 +37,14 @@
     <%- include('../../partials/navbarHome.ejs')%>
     <div class="container add_admin">
       <div class="ctg_title">
-        <h2>Atualizar Categoria</h2>
+        <h2>Update Category</h2>
         <hr />
       </div>
       <div class="card mx-auto">
         <form class="add_form" action="/categories/update" method="POST">
           <div class="mb-3">
             <label for="title" class="form-label _title"
-              >Escolha um novo título</label
+              >Choose a new title</label
             >
             <input
               type="text"
@@ -61,7 +61,7 @@
           </div>
           <input type="hidden" name="id" value="<%=category.id%>" />
           <button type="submit" class="btn btn-warning btn-add">
-            Atualizar
+            Update
           </button>
         </form>
       </div>

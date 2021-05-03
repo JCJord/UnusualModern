@@ -30,7 +30,7 @@
       integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
       crossorigin="anonymous"
     ></script>
-    <title>Blog</title>
+    <title>Categories</title>
   </head>
 
   <body>
@@ -39,7 +39,7 @@
     <div class="modal-dialog hidden" id="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Tem certeza que deseja deletar categoria?</h5>
+          <h5 class="modal-title">Are you sure you want to delete it?</h5>
           <button
             type="button"
             class="btn-close"
@@ -49,23 +49,23 @@
           ></button>
         </div>
         <div class="modal-body">
-          <p>Se você deletear esta categoria não poderá recuperá-la.</p>
+          <p>If you delete this category you will not be able to restore it.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="btnCancel">
-            Fechar
+            Close
           </button>
           <button type="button" class="btn btn-danger" id="deleteModal">
-            Deletar
+            Delete
           </button>
         </div>
       </div>
     </div>
 
     <div class="container _table">
-      <h1>Categorias</h1>
+      <h1>Category</h1>
       <a type="button" href="/admin/categories/new" class="btn btn-success">
-        Criar Nova Categoria
+        Create new category
       </a>
 
       <hr />
@@ -74,9 +74,9 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Título</th>
+            <th scope="col">Title</th>
             <th scope="col">Slug</th>
-            <th scope="col">Ações</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -90,7 +90,7 @@
               <a
                 href="/admin/categories/edit/<%=category.id%>"
                 class="btn btn-warning"
-                >Editar</a
+                >Edit</a
               >
               <form
                 id="form"
@@ -101,7 +101,7 @@
               >
                 <input type="hidden" name="id" value="<%= category.id %>" />
 
-                <button class="btn btn-danger" id="btnDelete">Deletar</button>
+                <button class="btn btn-danger" id="btnDelete">Delete</button>
               </form>
             </th>
           </tr>

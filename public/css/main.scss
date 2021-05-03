@@ -210,7 +210,7 @@ body {
   border-radius: 0px;
   padding: 10px;
   font-weight: 600;
-  width: 80px;
+  width: 92px;
   color: rgb(0, 0, 0);
   border: 1px solid #000 !important;
   &:hover {
@@ -239,7 +239,7 @@ body {
 }
 
 .column-1 {
-  margin-top: 275px;
+  margin-top: 225px;
 
   min-width: 425px;
   height: auto;
@@ -295,7 +295,7 @@ body {
   top: 1px;
 }
 .column-2 {
-  margin-top: 125px;
+  margin-top: 40px;
 
   height: auto;
 }
@@ -432,6 +432,7 @@ thead {
   font-size: 32px;
   text-align: center;
   margin-top: 2rem;
+  margin-bottom: 5rem !important;
 }
 .art-img {
   width: 240px;

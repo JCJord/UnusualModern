@@ -39,7 +39,7 @@
     <div class="modal-dialog hidden" id="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Tem certeza que deseja deletar artigo?</h5>
+          <h5 class="modal-title">Are your sure you wnat to delete this article?</h5>
           <button
             type="button"
             class="btn-close"
@@ -49,23 +49,23 @@
           ></button>
         </div>
         <div class="modal-body">
-          <p>Se você deletar este artigo não poderá recuperá-lo.</p>
+          <p>If you delete this article you will not be able to restore it.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="btnCancel">
-            Fechar
+            Close
           </button>
           <button type="button" class="btn btn-danger" id="deleteModal">
-            Deletar
+            Delete
           </button>
         </div>
       </div>
     </div>
 
     <div class="container _table">
-      <h1>Artigos</h1>
+      <h1>Articles</h1>
       <a type="button" href="/admin/article/new" class="btn btn-success">
-        Criar novo artigo
+        Create new article
       </a>
 
       <hr />
@@ -74,10 +74,10 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Título</th>
+            <th scope="col">Title</th>
             <th scope="col">Slug</th>
-            <th scope="col">Categoria</th>
-            <th scope="col">Ações</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -92,7 +92,7 @@
               <a
                 href="/admin/articles/edit/<%=article.id%>"
                 class="btn btn-warning"
-                >Editar</a
+                >Edit</a
               >
               <form
                 id="form"
@@ -103,7 +103,7 @@
               >
                 <input type="hidden" name="id" value="<%=article.id%>" />
 
-                <button class="btn btn-danger" id="btnDelete">Deletar</button>
+                <button class="btn btn-danger" id="btnDelete">Delete</button>
               </form>
             </th>
           </tr>

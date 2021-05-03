@@ -11,7 +11,7 @@ app.use(
   session({
     secret: "azKYUoKms₧↑♀←ƒ♪ö¿∞èìYìÑ╣êπ62ä65◘Ä98üï⌐☺9☺98oijfsaoiJSNAXG@%¨s!",
     cookie: {
-      maxAge: 300000,
+      maxAge: 18000000,
     },
   })
 );

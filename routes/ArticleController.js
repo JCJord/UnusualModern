@@ -3,10 +3,13 @@ const router = express.Router();
 const article = require("../model/Article");
 const slugify = require("slugify");
 const category = require("../model/Category");
+const adminAuth = require('../middlewares/adminAuth')
+
 
 // Rota de artigos
-router.get("/admin/articles", (req, res) => {
+router.get("/admin/articles",adminAuth, (req, res) => {
   // Busca no banco todas colunas do banco
+  var logged = req.session.user;
   article
     .findAll({
       include: [{ model: category }],
@@ -17,21 +20,24 @@ router.get("/admin/articles", (req, res) => {
           res.render(__dirname + "/../views/admin/articles/index", {
             articles: articles,
             categories: categories,
+            logged:logged,
           });
         });
       }
     });
 });
 
-router.get("/admin/article/new", (req, res) => {
+router.get("/admin/article/new", adminAuth,(req, res) => {
+  var logged = req.session.user;
   category.findAll().then((categories) => {
     res.render(__dirname + "/../views/admin/articles/new", {
       categories: categories,
+      logged:logged
     });
   });
 });
 
-router.post("/articles/save", (req, res) => {
+router.post("/articles/save",adminAuth, (req, res) => {
   var title = req.body.title;
   var body = req.body.bdy;
   var CategoryId = req.body.category;
@@ -52,9 +58,9 @@ router.post("/articles/save", (req, res) => {
     });
 });
 
-router.get("/admin/articles/edit/:id", (req, res) => {
+router.get("/admin/articles/edit/:id", adminAuth,(req, res) => {
   var id = req.params.id;
-
+  var logged = req.session.user;
   category.findAll().then((categories) => {
     article.findByPk(id).then((article) => {
       if (id != undefined) {
@@ -64,13 +70,14 @@ router.get("/admin/articles/edit/:id", (req, res) => {
         res.render(__dirname + "/../views/admin/articles/edit", {
           categories: categories,
           article: article,
+          logged:logged
         });
       }
     });
   });
 });
 
-router.post("/articles/update", (req, res) => {
+router.post("/articles/update", adminAuth,(req, res) => {
   var id = req.body.id;
   var title = req.body.title;
   var body = req.body.bdy;
@@ -93,7 +100,7 @@ router.post("/articles/update", (req, res) => {
       res.redirect("/admin/articles");
     });
 });
-router.post("/articles/delete", (req, res) => {
+router.post("/articles/delete", adminAuth,(req, res) => {
   var id = req.body.id;
   if (id != undefined) {
     if (!isNaN(id)) {
@@ -114,7 +121,8 @@ router.post("/articles/delete", (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {
+router.get("/",(req, res) => {
+  var logged = req.session.user;
   article
     .findAll({
       include: [{ model: category }],
@@ -127,6 +135,7 @@ router.get("/", (req, res) => {
           res.render(__dirname + "/../views/index", {
             articles: articles,
             categories: categories,
+            logged:logged,
           });
         });
       }
@@ -135,6 +144,7 @@ router.get("/", (req, res) => {
 
 router.get("/:slug", (req, res) => {
   var slug = req.params.slug;
+  var logged = req.session.user;
   article
     .findOne({
       where: {
@@ -148,6 +158,7 @@ router.get("/:slug", (req, res) => {
           res.render(__dirname + "/../views/admin/articles/article", {
             articles: articles,
             categories: categories,
+            logged:logged
           });
         });
       } else {
@@ -158,6 +169,7 @@ router.get("/:slug", (req, res) => {
 });
 
 router.get("/category/:slug", (req, res) => {
+  var logged = req.session.user;
   var slug = req.params.slug;
   category
     .findOne({
@@ -174,6 +186,7 @@ router.get("/category/:slug", (req, res) => {
             res.render(__dirname + "/../views/admin/categories/category.ejs", {
               articles: Category.articles,
               categories: categories,
+              logged:logged
             });
           })
           .catch((err) => {
@@ -186,6 +199,7 @@ router.get("/category/:slug", (req, res) => {
 });
 
 router.get("/page/:num", (req, res) => {
+  var logged = req.session.user;
   var page = req.params.num;
   var offset = 0;
 
@@ -218,6 +232,7 @@ router.get("/page/:num", (req, res) => {
         res.render(__dirname + "/../views/admin/articles/page", {
           categories: categories,
           result: result,
+          logged:logged
         });
       });
     });

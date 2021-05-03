@@ -30,20 +30,27 @@
       integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
       crossorigin="anonymous"
     ></script>
-    <title>Articles</title>
+    <title>Blog</title>
   </head>
   <body>
     <%-include('../../partials/navbarHome.ejs') %>
-    <div class="article-wrapper article-head mx-auto">
-      <div class="container">
-        <div class="card article-card">
-          <div class="card-header"><h1><%=articles.title%></h1></div>
+    <div class="ctg-art">
+      <%categories.forEach((category)=>{%>
+      <div class="article-wrapper mx-auto">
+        <div class="card-container">
+          <div class="card">
+            <div class="card-header"><h1><%= category.title%></h1></div>
 
-          <div class="card-body"><%-articles.body%></div>
+            <a
+              href="/category/<%=category.slug%>"
+              class="btn btn-default btn-signup"
+              >Read More</a
+            >
+          </div>
         </div>
       </div>
+      <%})%>
     </div>
-
     <%-include('../../partials/footer.ejs') %>
   </body>
 </html>

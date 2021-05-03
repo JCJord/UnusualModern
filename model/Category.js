@@ -10,5 +10,5 @@ const Category = con.define("Categories", {
     allowNull: false,
   },
 });
-
+Category.sync({force:false})
 module.exports = Category;

@@ -35,21 +35,21 @@
       integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
       crossorigin="anonymous"
     ></script>
-    <title>Blog</title>
+    <title>Articles</title>
   </head>
 
   <body>
     <%- include('../../partials/navbarHome.ejs')%>
     <div class="container add_admin">
       <div class="ctg_title">
-        <h2>Atualizar Artigo</h2>
+        <h2>Update article</h2>
         <hr />
       </div>
       <div class="card mx-auto">
         <form class="add_form" action="/articles/update" method="POST">
           <div class="mb-3">
             <label for="title" class="form-label _title"
-              >Escolha um novo título</label
+              >Choose a new title</label
             >
             <input
               type="text"
@@ -65,7 +65,7 @@
             />
           </div>
           <div class="form-group">
-            <label style="font-weight: bold">Categoria</label>
+            <label style="font-weight: bold">Category</label>
             <select
               name="category"
               class="form-control selection-box"
@@ -85,7 +85,7 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1" style="font-weight: bold"
-              >Assunto do artigo</label
+              >About the article</label
             >
             <textarea
               class="form-control"
