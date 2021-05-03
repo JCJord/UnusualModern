@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const db = require("./model/db");
 const session = require("express-session");
-const routes = require("./routes/route");
 const categoryController = require("./routes/CategoryController");
 const articleController = require("./routes/ArticleController");
 const userController = require("./routes/UserController");
