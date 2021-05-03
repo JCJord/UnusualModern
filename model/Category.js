@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const con = require("./DB");
+const con = require("./db");
 const Category = con.define("Categories", {
   title: {
     type: Sequelize.STRING,
@@ -10,5 +10,5 @@ const Category = con.define("Categories", {
     allowNull: false,
   },
 });
-Category.sync({force:false})
+Category.sync({ force: false });
 module.exports = Category;

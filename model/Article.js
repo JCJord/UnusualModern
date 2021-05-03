@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const con = require("./DB");
+const con = require("./db");
 const Category = require("./Category");
 
 const Article = con.define("article", {
@@ -19,5 +19,5 @@ const Article = con.define("article", {
 
 Category.hasMany(Article);
 Article.belongsTo(Category);
-Article.sync({force:false})
+Article.sync({ force: false });
 module.exports = Article;
