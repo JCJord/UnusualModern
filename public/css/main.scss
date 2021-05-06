@@ -282,6 +282,23 @@ body {
   }
 }
 
+.btn-intro {
+  width: 130px;
+  padding: 12px;
+  margin-left: 0px;
+  border-radius: 0 !important;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: 1px solid #000 !important;
+  background-color: #fffffffa;
+
+  margin-top: 7px;
+  &:hover {
+    background-color: #000000fa;
+    color: #fff;
+  }
+}
+
 .btn-watch {
   background-color: transparent;
   border: none;
