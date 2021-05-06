@@ -37,7 +37,7 @@ router.post("/user/create", adminAuth, (req, res) => {
             email: email,
             password: hash,
           })
-          .then((req, res) => {
+          .then(() => {
             res.redirect("/");
           })
           .catch((err) => {

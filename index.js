@@ -8,14 +8,14 @@ const userController = require("./routes/UserController");
 
 app.use(
   session({
+    saveUninitialized: false,
+    resave: true,
     secret: "azKYUoKms₧↑♀←ƒ♪ö¿∞èìYìÑ╣êπ62ä65◘Ä98üï⌐☺9☺98oijfsaoiJSNAXG@%¨s!",
     cookie: {
       maxAge: 18000000,
     },
   })
 );
-
-// Estabelecendo conexão com o banco
 
 db.authenticate()
   .then(() => {
@@ -25,20 +25,12 @@ db.authenticate()
     console.log("error occurred" + err);
   });
 
-// Configurando o template Engine
-
 app.set("view engine", "ejs");
-
-// Configurando o input Parser
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Conectando arquivos estáticos
-
 app.use(express.static("public"));
-
-// Conectando as rotas
 
 app.use("/", categoryController);
 app.use("/", articleController);
