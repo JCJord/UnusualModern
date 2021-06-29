@@ -10,6 +10,7 @@ Blog pessoal com login para adminstrador gerenciar categorias , posts e criaçã
 <li>EJS</li>
 <li>Javascript</li>
 <li>Node.JS</li>
+<li>MySQL</li>
 
 ## URL
 https://jcjord-blog.herokuapp.com/
